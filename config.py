@@ -7,19 +7,17 @@ class Config:
     MISTRAL_API_KEY = os.getenv('API_KEY')
     BOT_TOKEN = os.getenv('BOT_TOKEN')
     
-    # Database
-    POSTGRES_HOST = os.getenv('POSTGRES_HOST', 'localhost')
-    POSTGRES_PORT = os.getenv('POSTGRES_PORT', '5432')
-    POSTGRES_DB = os.getenv('POSTGRES_DB', 'recommendations')
-    POSTGRES_USER = os.getenv('POSTGRES_USER', 'postgres')
-    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD', 'postgres')
+    POSTGRES_HOST = os.getenv('POSTGRES_HOST')
+    POSTGRES_PORT = os.getenv('POSTGRES_PORT')
+    POSTGRES_DB = os.getenv('POSTGRES_DB')
+    POSTGRES_USER = os.getenv('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
     
     DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
     
-    # Redis
-    REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')
-    REDIS_PORT = int(os.getenv('REDIS_PORT', 6379))
-    LLM_MODEL = "mistral-large-latest"
+    REDIS_HOST = os.getenv('REDIS_HOST')
+    REDIS_PORT = int(os.getenv('REDIS_PORT'))
+    LLM_MODEL = os.getenv('LLM_MODEL')
     
     # Категории
     CATEGORIES = [
@@ -35,7 +33,7 @@ class Config:
         "🍻 Бары/Пабы"
     ]
     
-    # База ссылок на реальные сайты
+    # База ссылок на сайты
     URL_DATABASE = {
         "🏛️ Музеи": [
             "https://tretyakovgallery.ru",

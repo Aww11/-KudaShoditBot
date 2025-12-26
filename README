@@ -1,0 +1,20 @@
+main.py - Главный файл бота - запуск, обработка команд, диалоги
+requirements.txt - Библиотеки Python - что установить
+.env - Секретные ключи, токены, бла-бла
+docker-compose.yml - Базы данных - запуск PostgreSQL + Redis
+
+database.py - Модели БД - таблицы пользователей, мест, отзывов
+init_db.py - Инициализация БД
+
+services.py - Основные сервисы - парсинг сайтов, кэш, логика
+base.py - Базовый класс LLM - интерфейс для AI-клиентов
+mistral_client.py - Клиент Mistral AI
+prompts.py - Тексты и промпты 
+
+create_admin.py - Создание админа
+keyboards.py - Кнопки бота - интерфейс Telegram
+
+config.py - Настройки - API, категории, URL сайтов
+validators.py - Проверка данных - валидация URL, ID и т.д.
+
+Мяу :з

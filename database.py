@@ -3,6 +3,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 from datetime import datetime
 import os
 from dotenv import load_dotenv
+from config import config
 
 load_dotenv()
 
@@ -60,8 +61,6 @@ class Review(Base):
     def __repr__(self):
         return f"<Review(id={self.id})>"
 
-# Используем PostgreSQL из конфига
-from config import config
 engine = create_engine(config.DATABASE_URL)
 Session = sessionmaker(bind=engine)
 

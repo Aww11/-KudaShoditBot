@@ -48,14 +48,12 @@ class MistralClient(BaseLLMClient):
             
             response_text = response.choices[0].message.content.strip()
             
-            # Очищаем от возможных ```json
             if response_text.startswith('```'):
                 lines = response_text.split('\n')
                 response_text = '\n'.join(lines[1:-1]) if len(lines) > 2 else lines[0]
             
             result = json.loads(response_text)
             
-            # Проверяем структуру
             if "categories" not in result:
                 result["categories"] = []
             if "explanation" not in result:
@@ -122,7 +120,6 @@ class MistralClient(BaseLLMClient):
                 categories.append(category)
         
         if not categories:
-            # Выбираем первые 2 доступные категории
             categories = available_categories[:2] if available_categories else []
         
         return {

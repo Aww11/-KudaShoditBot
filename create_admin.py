@@ -21,7 +21,6 @@ def create_admin_user():
         
         session = Session()
         
-        # Проверяем существующего пользователя
         existing_user = session.query(User).filter_by(telegram_id=telegram_id).first()
         
         if existing_user:
@@ -34,7 +33,6 @@ def create_admin_user():
             else:
                 print("❌ Отменено")
         else:
-            # Создаем нового
             user = User(
                 telegram_id=telegram_id,
                 username=username or None,

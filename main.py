@@ -56,7 +56,6 @@ def split_long_message(text: str, max_length: int = 4000) -> list:
 @dp.message(Command("start"))
 async def cmd_start(message: Message):
     """Начало работы"""
-    # Сохраняем пользователя
     with Session() as session:
         user = session.query(User).filter_by(telegram_id=str(message.from_user.id)).first()
         if not user:
@@ -279,7 +278,6 @@ async def add_url_finish(message: Message, state: FSMContext):
     """Обработка URL"""
     url = message.text.strip()
     
-    # Простая валидация URL
     if not url.startswith(('http://', 'https://')):
         await message.answer("❌ URL должен начинаться с http:// или https://")
         return
@@ -363,7 +361,6 @@ async def main():
     print("🤖 *Бот рекомендаций мест отдыха*")
     print("=" * 50)
     
-    # Инициализируем БД
     init_db()
     
     stats = AdminService.get_url_stats()

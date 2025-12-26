@@ -22,13 +22,9 @@ def sanitize_text(text: str, max_length: int = 1000) -> str:
     if not text:
         return ""
     
-    # Удаляем HTML теги
     text = re.sub(r'<[^>]+>', '', text)
-    
-    # Удаляем слишком длинные пробелы
     text = re.sub(r'\s+', ' ', text)
     
-    # Обрезаем длину
     if len(text) > max_length:
         text = text[:max_length] + "..."
     
